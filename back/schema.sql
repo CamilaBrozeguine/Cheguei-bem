@@ -1,0 +1,14 @@
+CREATE TABLE usuarias (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(100) NOT NULL,
+  email VARCHAR(150) UNIQUE NOT NULL,
+  senha_hash TEXT NOT NULL,
+  criada_em TIMESTAMP DEFAULT NOW()
+);
+
+CREATE TABLE contatos (
+  id SERIAL PRIMARY KEY,
+  usuaria_id INTEGER NOT NULL REFERENCES usuarias(id) ON DELETE CASCADE,
+  nome VARCHAR(100) NOT NULL,
+  telefone VARCHAR(20) NOT NULL
+);
