@@ -4,6 +4,7 @@ const pool = require('./db');
 const app = express();
 app.use(express.json());
 app.use('/auth', require('./routes/auth'));
+app.use('/contatos', require('./routes/contatos'));
 
 app.get('/saude', async (req, res) => {
   try {
